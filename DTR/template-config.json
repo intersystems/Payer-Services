@@ -1,0 +1,48 @@
+{
+    "intersystems_payer_services_hp_dtr":{
+        "interopCredentials":[
+            {
+                "identifier":"umCreds",
+                "userName":"testuser2",
+                "password":"abc1234"
+            }
+        ],
+        "sslConfigs":[
+            {
+                "name":"ISC.FeatureTracker.SSL.ConfigTest",
+                "description":"For contacting OAuth server for DTR",
+                "verifyPeer":false,
+                "privateKeyType":"RSA",
+                "tlsMaxVersion":"TLSv1.3",
+                "tlsMinVersion":"TLSv1.2",
+                "ocsp": false
+            }
+        ],
+        "httpServices":[
+            {
+                "name":"DTR|UMSYSTEM",
+                "host":"hal9000.bigcorp.com",
+                "port":4446,
+                "url":"/umsystem/index.php",
+                "sslConfig":"ISC.FeatureTracker.SSL.ConfigTest",
+                "httpCredentialsConfig":"umCreds",
+                "authType": "basic"
+            }
+        ],
+        "oAuthServerConfigs":[
+            {
+                "oAuthServerEndpoint":"https://dev-13926970.okta.com/oauth2/auskb8z8bmtLfjE4X5d7",
+                "oAuthServerSSLConfig":"ISC.FeatureTracker.SSL.ConfigTest",
+                "clients":[
+                    {
+                        "clientName":"DTRResourceServer",
+                        "clientType":"resource",
+                        "sslConfiguration":"ISC.FeatureTracker.SSL.ConfigTest",
+                        "clientCredentialsID":"0oai9fnhsvMOI0PU75d7",
+                        "clientSecret":"hufG2OJLelA3BHp8mYe8XDB9EHix9VXOMpsaI6oHlmlGspm3oUv2cjlkZXmU5ESO"
+                    }
+                ]
+            }
+        ]
+    }
+}
