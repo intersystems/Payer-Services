@@ -1,0 +1,132 @@
+{
+    "intersystems_payer_services_hp_pas":{
+        "interopCredentials":[
+            {
+                "identifier":"<UM credentials identifier>",
+                "userName":"<user name>",
+                "password":"<password>"
+            }
+        ],
+        "sslConfigs":[
+            {
+                "name":"<SSL configuration name for OAuth connection>",
+                "description":"<description>",
+                "verifyPeer":<boolean>,
+                "privateKeyType":"<private key type, e.g. RSA>",
+                "tlsMaxVersion":"<maximum TLS version, e.g. TLSv1.3>",
+                "tlsMinVersion":"<minimum TLS version, e.g. TLSv1.2>",
+                "ocsp":<boolean>
+            },
+            {
+                "name":"<SSL configuration name for UM connection>",
+                "description":"<description>",
+                "verifyPeer":<boolean>,
+                "privateKeyType":"<private key type, e.g. RSA>",
+                "tlsMaxVersion":"<maximum TLS version, e.g. TLSv1.3>",
+                "tlsMinVersion":"<minimum TLS version, e.g. TLSv1.2>",
+                "ocsp":<boolean>
+            }
+        ],
+        "httpServices":[
+            {
+                "name":"PAS|SUBMIT",
+                "host":"<host>",
+                "port":<port>,
+                "url":"<URL, not including host and port>",
+                "sslConfig":"<SSL configuration name for OAuth connection>",
+                "httpCredentialsConfig":"<UM credentials identifier>",
+                "authType": "<auth type, e.g. 'basic'>"
+            },
+            {
+                "name":"PAS|INQUIRE",
+                "host":"<host>",
+                "port":<port>,
+                "url":"<URL, not including host and port>",
+                "sslConfig":"<SSL configuration name for OAuth connection>",
+                "httpCredentialsConfig":"<UM credentials identifier>",
+                "authType": "<auth type, e.g. 'basic'>"
+            },
+            {
+                "name":"PAS|SUBSCRIPTION",
+                "host":"<host>",
+                "port":<port>,
+                "url":"<URL, not including host and port>",
+                "sslConfig":"<SSL configuration name for OAuth connection>",
+                "httpCredentialsConfig":"<UM credentials identifier>",
+                "authType": "<auth type, e.g. 'basic'>"
+            }
+        ],
+        "oAuthServerConfigs":[
+            {
+                "oAuthServerEndpoint":"<OAuth2 endpoint for PAS connection>",
+                "oAuthServerSSLConfig":"<SSL configuration name for OAuth connection>",
+                "clients":[
+                    {
+                        "clientName":"PASResourceServer",
+                        "clientType":"resource",
+                        "sslConfiguration":"<SSL configuration name for OAuth connection>",
+                        "clientCredentialsID":"<client credentials ID>",
+                        "clientSecret":"<client secret>"
+                    }
+                ]
+            },
+            {
+                "oAuthServerEndpoint":"<OAuth 2 endpoint for UM connections>",
+                "oAuthServerSSLConfig":"<SSL configuration name for OAuth connection>",
+                "clients":[
+                    {
+                        "clientName":"UMClient",
+                        "clientType":"confidential",
+                        "sslConfiguration":"<SSL configuration name for UM connection>"
+                        "redirectUrlHost":"",
+                        "redirectUrlPort":"",
+                        "clientCredentialsID":"<client credentials ID>",
+                        "clientSecret":"<client secret>",
+                    }
+                ]
+            }
+        ],
+        "productionSettings": {
+            "productionName": "HS.HP.PAS.Local.Production",
+            "settings": [
+                {
+                    "settingName": "EnableX12Transform",
+                    "settingValue": "1",
+                    "target": "Production"
+                },
+                {
+                    "settingName": "SSLCheckServerIdentity",
+                    "settingValue": "1",
+                    "target": "Production"
+                },
+                {
+                    "settingName": "LogRequestResponse",
+                    "settingValue": "0",
+                    "target": "Production"
+                },
+                {
+                    "settingName": "UseMockUp",
+                    "settingValue": "0",
+                    "target": "Production"
+                }
+            ],
+            "items": [
+                {
+                    "name": "PollingService",
+                    "settings": [
+                        {
+                            "settingName": "Enabled",
+                            "settingValue": "1",
+                            "target": "Item"
+                        },
+                        {
+                            "settingName": "CallInterval",
+                            "settingValue": "300",
+                            "target": "Adapter"
+                        }
+                   ]
+               }
+            ]
+        }
+    }
+}
