@@ -77,14 +77,14 @@ CreateApplication:Name=/csp/<DTR namespace lowercase>,NameSpace=<DTR namespace>,
 CreateApplication:Name=/csp/<PAS namespace lowercase>,NameSpace=<PAS namespace>,Path=<PAS namespace lowercase>,AutheEnabled=8224,GroupById=%ISCMgtPortal,Description=Default csp application for namespace <PAS namespace>
  
 # Run module-specific config
-Execute:Namespace="<CRD namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_crd SetUpComponent -verbose"
-Execute:Namespace="<DTR namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_dtr SetUpComponent -verbose"
-Execute:Namespace="<PAS namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_pas SetUpComponent -verbose"
+Execute:Namespace="<CRD namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.crd SetUpComponent -verbose"
+Execute:Namespace="<DTR namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.dtr SetUpComponent -verbose"
+Execute:Namespace="<PAS namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.pas SetUpComponent -verbose"
 
 # Run implementation-specific config
-Execute:Namespace="<CRD namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_crd ApplyUserDefinedConfiguration -verbose -env <absolute path to CRD config file>"
-Execute:Namespace="<DTR namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_dtr ApplyUserDefinedConfiguration -verbose -env <absolute path to DTR config file>"
-Execute:Namespace="<PAS namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_pas ApplyUserDefinedConfiguration -verbose -env <absolute path to PAS config file>"
+Execute:Namespace="<CRD namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.crd ApplyUserDefinedConfiguration -verbose -env <absolute path to CRD config file>"
+Execute:Namespace="<DTR namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.dtr ApplyUserDefinedConfiguration -verbose -env <absolute path to DTR config file>"
+Execute:Namespace="<PAS namespace>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.pas ApplyUserDefinedConfiguration -verbose -env <absolute path to PAS config file>"
  
 # Map ZAUTHENTICATE for OAuth2 - DTR and PAS only
 # NOTE: the second command will overwrite the results of the first, but the point is ensure that 
