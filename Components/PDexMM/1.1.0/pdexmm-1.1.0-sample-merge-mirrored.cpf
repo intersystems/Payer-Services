@@ -40,7 +40,7 @@ Execute:Namespace="<COMPONENT NAMESPACE>",ClassName="%IPM.Main",MethodName="Shel
 CreateApplication:Name=/csp/<component namespace lowercase>,NameSpace=<COMPONENT NAMESPACE>,Path=<component namespace lowercase>,AutheEnabled=8224,GroupById=%ISCMgtPortal,Description=Default csp application for namespace <COMPONENT NAMESPACE>
 
 # Run module-specific config
-Execute:Namespace="<COMPONENT NAMESPACE>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.pdexmm SetUpComponent -verbose"
+Execute:Namespace="<COMPONENT NAMESPACE>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_pdexmm SetUpComponent -verbose"
 
 # Run implementation-specific config
-Execute:Namespace="<COMPONENT NAMESPACE>",ClassName="%IPM.Main",MethodName="Shell",Arg1="healthshare.hp.pdexmm ApplyUserDefinedConfiguration -verbose -env <absolute path to config file>"
+Execute:Namespace="<COMPONENT NAMESPACE>",ClassName="%IPM.Main",MethodName="Shell",Arg1="intersystems_payer_services_hp_pdexmm ApplyUserDefinedConfiguration -verbose -env <absolute path to config file>"
